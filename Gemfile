@@ -7,6 +7,7 @@ gem 'rails-api', "~> 0.0.3"
 gem 'pg', "~> 0.14.1"
 gem 'thin', "~> 1.5.1"
 gem 'apipie-rails', "~> 0.0.20"
+gem "versionist", "~> 1.0.0"
 
 group :development do
   gem 'foreman', "~> 0.62.0"

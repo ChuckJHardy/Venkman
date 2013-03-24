@@ -126,6 +126,10 @@ GEM
       polyglot
       polyglot (>= 0.3.1)
     tzinfo (0.3.37)
+    versionist (1.0.0)
+      rails (~> 3.0)
+      yard (~> 0.7)
+    yard (0.8.5.2)
 
 PLATFORMS
   ruby
@@ -142,3 +146,4 @@ DEPENDENCIES
   simplecov (~> 0.7.1)
   simplecov-vim (~> 0.0.1)
   thin (~> 1.5.1)
+  versionist (~> 1.0.0)
