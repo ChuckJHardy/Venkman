@@ -11,6 +11,7 @@ gem 'apipie-rails', "~> 0.0.20"
 group :development do
   gem 'foreman', "~> 0.62.0"
   gem "annotate", "~> 2.5.0"
+  gem "rails_best_practices", "~> 1.13.4"
 end
 
 group :test do
