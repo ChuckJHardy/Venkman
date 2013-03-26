@@ -59,10 +59,16 @@ module Venkman
     # parameters by using an attr_accessible or attr_protected declaration.
     config.active_record.whitelist_attributes = true
 
+    # Force application to not access the DB or load models when precompiling assets.
+    config.assets.initialize_on_precompile = false
+
     # Enable the asset pipeline
     config.assets.enabled = true
 
     # Version of your assets, change this if you want to expire all your assets
     config.assets.version = '1.0'
+
+    # Secret Token
+    config.secret_token = '0eb60557f7e5d9b8591253e1c35c8c62'
   end
 end

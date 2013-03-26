@@ -4,6 +4,9 @@
 # or operating system, you probably want to add a global ignore instead:
 #   git config --global core.excludesfile ~/.gitignore_global
 
+# Mac
+.DS_Store
+
 # Ignore bundler config
 /.bundle
 
@@ -17,3 +20,4 @@
 # Gem Generated
 /coverage
 coverage.vim
+public/docs/
