@@ -3,5 +3,4 @@ notifications:
   email:
     - chuckjhardy@gmail.com
 rvm:
-  - 1.9.3
   - 2.0.0
