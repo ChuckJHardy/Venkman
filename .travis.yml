@@ -1,8 +1,12 @@
 language: ruby
 before_script:
   - psql -c 'create database venkman_test;' -U postgres
+script: 
+  - RAILS_ENV=test bundle exec rake db:migrate --trace
+rvm:
+  - 2.0.0
+env:
+  - DB=postgresql
 notifications:
   email:
     - chuckjhardy@gmail.com
-rvm:
-  - 2.0.0
