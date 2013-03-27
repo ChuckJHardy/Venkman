@@ -9,6 +9,7 @@ gem 'thin', "~> 1.5.1"
 gem "devise", "~> 2.2.3"
 gem "dalli", "~> 2.6.2"
 gem "yajl-ruby", "~> 1.1.0", require: 'yajl'
+gem "draper", "~> 1.1.0"
 
 group :development do
   gem 'foreman', "~> 0.62.0"

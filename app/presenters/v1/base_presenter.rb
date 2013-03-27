@@ -1,2 +1,2 @@
-class V1::BasePresenter
+class V1::BasePresenter < Draper::Decorator
 end

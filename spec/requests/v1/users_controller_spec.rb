@@ -14,6 +14,12 @@ resource "User" do
 
     example_request "Getting user details" do
       status.should == 200
+
+      Yajl::Parser.parse(response_body).tap do |json|
+        json['user']['id'].should eq(1)
+        json['user']['email'].should eq(user.email)
+        json['user']['authentication_token'].should eq(auth_token)
+      end
     end
   end
 
@@ -21,6 +27,7 @@ resource "User" do
     let(:email) { "chuckjhardy@venkman-app.com" }
     let(:password) { "ABC123789" }
     let(:password_confirmation) { "ABC123789" }
+    let(:auth_token) { User.last.authentication_token }
 
     parameter :email, "Email for this account"
     parameter :password, "Chosen password"
@@ -36,6 +43,7 @@ resource "User" do
       Yajl::Parser.parse(response_body).tap do |json|
         json['user']['id'].should eq(1)
         json['user']['email'].should eq(email)
+        json['user']['authentication_token'].should eq(auth_token)
       end
     end
   end

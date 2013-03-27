@@ -19,6 +19,7 @@ RSpec.configure do |config|
   config.infer_base_class_for_anonymous_controllers = true
 
   config.include Devise::TestHelpers, :type => :controller
+  config.include ControllerMacros, :type => :controller
 
   config.before(:suite) do
     DatabaseCleaner.strategy = :truncation

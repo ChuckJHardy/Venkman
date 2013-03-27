@@ -10,8 +10,10 @@ describe V1::UsersController do
     it { should respond_with(:success) }
 
     it 'returns expected user' do
-      JSON.parse(response.body).tap do |record|
-        expect(record['user']['id']).to eq(user.id)
+      Yajl::Parser.parse(response.body)['user'].tap do |json|
+        expect(json).to have_key('id')
+        expect(json).to have_key('email')
+        expect(json).to have_key('authentication_token')
       end
     end
   end
@@ -24,9 +26,15 @@ describe V1::UsersController do
 
       it { should respond_with(:created) }
 
+      it 'signs in new user' do
+        expect(controller.current_user).to_not be_nil
+      end
+
       it 'returns expected user' do
-        Yajl::Parser.parse(response.body).tap do |record|
-          expect(record['user']['email']).to eq(attributes.fetch(:email))
+        Yajl::Parser.parse(response.body)['user'].tap do |json|
+          expect(json).to have_key('id')
+          expect(json).to have_key('email')
+          expect(json).to have_key('authentication_token')
         end
       end
     end

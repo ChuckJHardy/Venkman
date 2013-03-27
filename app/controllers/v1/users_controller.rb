@@ -3,7 +3,7 @@ class V1::UsersController < V1::BaseController
 
   # GET /v1/users/1.json
   def show
-    render json: user
+    render json: current_user
   end
 
   # POST /v1/users.json
@@ -11,7 +11,8 @@ class V1::UsersController < V1::BaseController
     new_user = User.new params[:user]
 
     if new_user.save
-      render json: new_user, status: :created
+      sign_in(new_user)
+      render json: current_user, status: :created
     else
       render json: new_user.errors, status: :unprocessable_entity
     end
@@ -19,23 +20,17 @@ class V1::UsersController < V1::BaseController
 
   # PATCH/PUT /v1/users/1.json
   def update
-    if user.update_attributes params[:user]
+    if current_user.update_attributes params[:user]
       head :no_content
     else
-      render json: user.errors, status: :unprocessable_entity
+      render json: current_user.errors, status: :unprocessable_entity
     end
   end
 
   # DELETE /v1/users/1.json
   def destroy
-    user.destroy
+    current_user.destroy
 
     head :no_content
-  end
-
-  private
-
-  def user
-    @user ||= User.find params[:id]
   end
 end

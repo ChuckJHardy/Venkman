@@ -1,8 +1,8 @@
 require 'simplecov-vim/formatter'
 
 SimpleCov.configure do
-  minimum_coverage 99
-  maximum_coverage_drop 1
+  minimum_coverage 90
+  maximum_coverage_drop 10
 
   start('rails') do
     formatter SimpleCov::Formatter::MultiFormatter[
