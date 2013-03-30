@@ -13,6 +13,7 @@ gem "draper", "~> 1.1.0"
 gem "gmailish", "~> 0.0.1"
 gem "clockwork", "~> 0.5.0"
 gem "sidekiq", "~> 2.9.0"
+gem "coveralls", "~> 0.6.3", require: false
 
 group :development do
   gem 'foreman', "~> 0.62.0"
