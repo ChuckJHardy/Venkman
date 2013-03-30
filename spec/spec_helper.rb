@@ -3,6 +3,7 @@ require 'spec_helper_lite'
 require File.expand_path("../../config/environment", __FILE__)
 
 require 'rspec/rails'
+require 'rspec/fire'
 require 'rspec/autorun'
 
 Dir[Rails.root.join("spec/support/**/*.rb")].each {|f| require f}
@@ -18,6 +19,7 @@ RSpec.configure do |config|
   config.run_all_when_everything_filtered = true
   config.infer_base_class_for_anonymous_controllers = true
 
+  config.include RSpec::Fire
   config.include Devise::TestHelpers, :type => :controller
   config.include ControllerMacros, :type => :controller
 
@@ -33,4 +35,8 @@ end
 RspecApiDocumentation.configure do |config|
   config.docs_dir = Rails.root.join("public", "docs")
   config.url_prefix = "/docs"
+end
+
+RSpec::Fire.configure do |config|
+  config.verify_constant_names = true
 end

@@ -31,7 +31,14 @@ class User < ActiveRecord::Base
          :token_authenticatable,
          :lockable
 
+  has_many :messages
+
   before_save :ensure_authentication_token
+  before_create :uid
 
   attr_accessible :email, :password, :password_confirmation, :remember_me
+
+  def uid
+    self.uid = UniqueIdentifier.for(self.email)
+  end
 end

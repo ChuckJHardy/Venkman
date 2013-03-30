@@ -10,6 +10,9 @@ gem "devise", "~> 2.2.3"
 gem "dalli", "~> 2.6.2"
 gem "yajl-ruby", "~> 1.1.0", require: 'yajl'
 gem "draper", "~> 1.1.0"
+gem "gmailish", "~> 0.0.1"
+gem "clockwork", "~> 0.5.0"
+gem "sidekiq", "~> 2.9.0"
 
 group :development do
   gem 'foreman', "~> 0.62.0"
@@ -18,6 +21,7 @@ group :development do
 end
 
 group :test do
+  gem "rspec-fire", "~> 1.1.3"
   gem "factory_girl_rails", "~> 4.2.1"
   gem "database_cleaner", "~> 0.9.1"
   gem "shoulda-matchers", "~> 1.5.4"

@@ -46,12 +46,31 @@ describe User do
     end
   end
 
+  describe 'Relationships' do
+    it { should have_many(:messages) }
+  end
+
   describe 'Before Filters' do
     describe '.ensure_authentication_token' do
       it 'gets called' do
         instance.should_receive(:ensure_authentication_token)
 
         instance.save!
+      end
+    end
+
+    describe '.uid' do
+      let(:hex) { "696768d1b9e0291ee37a2ef4ce8253e4" }
+
+      it 'gets called' do
+        UniqueIdentifier.should_receive(:for).
+          any_number_of_times.
+          with(instance.email).
+          and_return(hex)
+
+        instance.save!
+
+        expect(instance.uid).to eq(hex)
       end
     end
   end
