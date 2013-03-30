@@ -18,7 +18,7 @@ gem "coveralls", "~> 0.6.3", require: false
 group :development do
   gem 'foreman', "~> 0.62.0"
   gem "annotate", "~> 2.5.0"
-  gem "rails_best_practices", "~> 1.13.4"
+  gem "metric_fu", "~> 4.1.0"
 end
 
 group :test do
@@ -29,6 +29,7 @@ group :test do
   gem "rspec_api_documentation", "~> 0.8.0"
   gem "simplecov", "~> 0.7.1", :require => false
   gem 'simplecov-vim', "~> 0.0.1"
+  gem "simplecov-rcov-text", "~> 0.0.2"
 end
 
 group :test, :development do

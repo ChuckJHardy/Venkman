@@ -86,19 +86,42 @@ describe 'Messages Acceptance' do
     expect(User.find(1).messages).to_not eq([])
   end
 
+  it 'returns expected ammount of messages per user' do
+    subject
+
+    expect(User.find(1).messages.size).to eq(1)
+    expect(User.find(2).messages.size).to eq(2)
+  end
+
   it 'returns messages with the correct subjects' do
     subject
 
-    expect(User.find(1).messages.first.subject).to eq(subject_one)
-    expect(User.find(2).messages.first.subject).to eq(subject_two)
-    expect(User.find(2).messages.last.subject).to eq(subject_three)
+    expect(
+      User.find(1).messages.find_by_subject(subject_one)
+    ).to_not be_nil
+
+    expect(
+      User.find(2).messages.find_by_subject(subject_two)
+    ).to_not be_nil
+
+    expect(
+      User.find(2).messages.find_by_subject(subject_three)
+    ).to_not be_nil
   end
 
   it 'returns messages with the correct bodies' do
     subject
 
-    expect(User.find(1).messages.first.body).to eq(body_one)
-    expect(User.find(2).messages.first.body).to eq(body_two)
-    expect(User.find(2).messages.last.body).to eq(body_three)
+    expect(
+      User.find(1).messages.find_by_body(body_one)
+    ).to_not be_nil
+
+    expect(
+      User.find(2).messages.find_by_body(body_two)
+    ).to_not be_nil
+
+    expect(
+      User.find(2).messages.find_by_body(body_three)
+    ).to_not be_nil
   end
 end
