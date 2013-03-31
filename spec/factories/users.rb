@@ -6,4 +6,11 @@ FactoryGirl.define do
     password 'password'
     password_confirmation 'password'
   end
+
+  factory :message do
+    subject "Through the Looking Glass"
+    body "Lorem Ipsum is simply dummy text of the printing and typesetting."
+
+    user
+  end
 end

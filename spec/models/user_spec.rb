@@ -32,7 +32,6 @@ describe User do
       [
         :database_authenticatable,
         :token_authenticatable,
-        :rememberable,
         :recoverable,
         :registerable,
         :validatable,
@@ -47,7 +46,7 @@ describe User do
   end
 
   describe 'Relationships' do
-    it { should have_many(:messages) }
+    it { should have_many(:messages).dependent(:destroy) }
   end
 
   describe 'Before Filters' do

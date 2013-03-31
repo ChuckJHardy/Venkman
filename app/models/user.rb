@@ -25,13 +25,12 @@ class User < ActiveRecord::Base
   devise :database_authenticatable,
          :registerable,
          :recoverable,
-         :rememberable,
          :trackable,
          :validatable,
          :token_authenticatable,
          :lockable
 
-  has_many :messages
+  has_many :messages, dependent: :destroy
 
   before_save :ensure_authentication_token
   before_create :uid

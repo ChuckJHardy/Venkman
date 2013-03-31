@@ -1,7 +1,7 @@
 require 'spec_helper'
 
 describe V1::UsersController do
-  describe "GET '/user/1'" do
+  describe "GET 'v1/user/1'" do
     let(:user) { FactoryGirl.create(:user) }
     let(:token) { user.authentication_token }
 
@@ -18,7 +18,7 @@ describe V1::UsersController do
     end
   end
 
-  describe "POST '/users'" do
+  describe "POST 'v1/users'" do
     let(:attributes) { FactoryGirl.attributes_for(:user) }
 
     context 'success' do
@@ -63,7 +63,7 @@ describe V1::UsersController do
     end
   end
 
-  describe "PATCH/PUT '/user/1'" do
+  describe "PATCH/PUT 'v1/user/1'" do
     let(:user) { FactoryGirl.create(:user) }
     let(:token) { user.authentication_token }
 
@@ -106,7 +106,7 @@ describe V1::UsersController do
     end
   end
 
-  describe "DETETE '/user/1'" do
+  describe "DETETE 'v1/user/1'" do
     let(:user) { FactoryGirl.create(:user) }
     let(:token) { user.authentication_token }
 
