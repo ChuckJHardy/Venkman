@@ -27,9 +27,9 @@ group :test do
   gem "database_cleaner", "~> 0.9.1"
   gem "shoulda-matchers", "~> 1.5.4"
   gem "rspec_api_documentation", "~> 0.8.0"
-  gem "simplecov", "~> 0.7.1", :require => false
+  gem "simplecov", "~> 0.7.1", require: false
   gem 'simplecov-vim', "~> 0.0.1"
-  gem "simplecov-rcov-text", "~> 0.0.2"
+  gem "simplecov-rcov-text", "~> 0.0.2", require: false
 end
 
 group :test, :development do
