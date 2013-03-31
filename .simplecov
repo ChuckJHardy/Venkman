@@ -1,6 +1,5 @@
 require 'coveralls'
 require 'simplecov-vim/formatter'
-require 'simplecov-rcov-text'
 
 SimpleCov.configure do
   minimum_coverage 90
@@ -10,7 +9,6 @@ SimpleCov.configure do
     formatter SimpleCov::Formatter::MultiFormatter[
       SimpleCov::Formatter::HTMLFormatter,
       Coveralls::SimpleCov::Formatter,
-      SimpleCov::Formatter::RcovTextFormatter,
       SimpleCov::Formatter::VimFormatter
     ]
 
