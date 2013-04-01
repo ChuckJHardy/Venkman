@@ -4,7 +4,7 @@ ruby '2.0.0'
 
 gem 'rails', '~> 3.2.13'
 gem 'rails-api', "~> 0.0.3"
-gem 'pg', "~> 0.14.1"
+gem 'pg', "~> 0.15.0"
 gem 'thin', "~> 1.5.1"
 gem "devise", "~> 2.2.3"
 gem "dalli", "~> 2.6.2"
@@ -25,7 +25,7 @@ group :test do
   gem "rspec-fire", "~> 1.1.3"
   gem "factory_girl_rails", "~> 4.2.1"
   gem "database_cleaner", "~> 0.9.1"
-  gem "shoulda-matchers", "~> 1.5.4"
+  gem "shoulda-matchers", "~> 1.5.6"
   gem "rspec_api_documentation", "~> 0.8.0"
   gem "simplecov", "~> 0.7.1", require: false
   gem 'simplecov-vim', "~> 0.0.1"
