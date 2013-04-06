@@ -29,6 +29,7 @@ group :test do
   gem "rspec_api_documentation", "~> 0.8.0"
   gem "simplecov", "~> 0.7.1", require: false
   gem 'simplecov-vim', "~> 0.0.1"
+  gem "simplecov-sublime-ruby-coverage", "~> 1.0.0"
 end
 
 group :test, :development do

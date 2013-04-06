@@ -12,7 +12,7 @@ class V1::UsersController < V1::BaseController
 
     if new_user.save
       sign_in(new_user)
-      render json: current_user, status: :created
+      render json: current_user, status: :created, callback: params[:callback]
     else
       render json: new_user.errors, status: :unprocessable_entity
     end

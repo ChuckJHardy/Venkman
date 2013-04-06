@@ -6,4 +6,7 @@ Venkman::Application.routes.draw do
       resources :messages, except: [:create, :update]
     end
   end
+
+  match '*path', :controller => 'application', :action => 'server_status',
+    :constraints => {:method => 'OPTIONS'}
 end
