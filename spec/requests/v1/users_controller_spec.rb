@@ -23,17 +23,16 @@ resource "User" do
     end
   end
 
-  post "v1/users" do
+  post "v1/registrations" do
     let(:email) { "chuckjhardy@venkman-app.com" }
     let(:password) { "ABC123789" }
     let(:password_confirmation) { "ABC123789" }
-    let(:auth_token) { User.last.authentication_token }
 
     parameter :email, "Email for this account"
     parameter :password, "Chosen password"
     parameter :password_confirmation, "Confirm chosen password"
 
-    scope_parameters :user, [ :email, :password, :password_confirmation ]
+    # scope_parameters :user, [ :email, :password, :password_confirmation ]
 
     required_parameters :email, :password, :password_confirmation
 
@@ -41,30 +40,9 @@ resource "User" do
       status.should == 201
 
       Yajl::Parser.parse(response_body).tap do |json|
-        json['user']['id'].should eq(1)
-        json['user']['email'].should eq(email)
-        json['user']['authentication_token'].should eq(auth_token)
+        json['user_id'].should eq(1)
+        json['authentication_token'].should eq(User.first.authentication_token)
       end
-    end
-  end
-
-  put "v1/users/:id" do
-    let(:user) { FactoryGirl.create(:user) }
-    let(:id) { user.id }
-    let(:auth_token) { user.authentication_token }
-    let(:email) { "chuck@venkman-app.com" }
-
-    before { user }
-
-    parameter :auth_token, "User authentication token"
-    parameter :email, "Email for this account"
-
-    required_parameters :auth_token
-
-    scope_parameters :user, [ :email ]
-
-    example_request "Update a User" do
-      status.should == 204
     end
   end
 
