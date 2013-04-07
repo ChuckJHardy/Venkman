@@ -1,6 +1,5 @@
 require 'coveralls'
 require 'simplecov-vim/formatter'
-require 'simplecov-sublime-ruby-coverage'
 
 SimpleCov.configure do
   minimum_coverage 90
@@ -10,8 +9,7 @@ SimpleCov.configure do
     formatter SimpleCov::Formatter::MultiFormatter[
       SimpleCov::Formatter::HTMLFormatter,
       Coveralls::SimpleCov::Formatter,
-      SimpleCov::Formatter::VimFormatter,
-      SimpleCov::Formatter::SublimeRubyCoverageFormatter
+      SimpleCov::Formatter::VimFormatter
     ]
 
     add_group 'Controllers', 'app/controllers'

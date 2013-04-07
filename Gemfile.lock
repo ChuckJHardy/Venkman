@@ -178,8 +178,6 @@ GEM
       multi_json (~> 1.0)
       simplecov-html (~> 0.7.1)
     simplecov-html (0.7.1)
-    simplecov-sublime-ruby-coverage (1.0.0)
-      simplecov
     simplecov-vim (0.0.1)
     sprockets (2.2.2)
       hike (~> 1.2)
@@ -228,7 +226,6 @@ DEPENDENCIES
   shoulda-matchers (~> 1.5.6)
   sidekiq (~> 2.9.0)
   simplecov (~> 0.7.1)
-  simplecov-sublime-ruby-coverage (~> 1.0.0)
   simplecov-vim (~> 0.0.1)
   thin (~> 1.5.1)
   yajl-ruby (~> 1.1.0)
