@@ -6,21 +6,22 @@ Retreive, parse, process, filter and assign emails from a Gmail account to a use
 
 * [Create a User](#create_user)
 * [Get a User](#get_a_user)
-* [Update a User](#update_a_user)
 * [Delete a User](#delete_a_user)
+* [Sign-in a User](#signin_user)
+* [Sign-out a User](#signout_user)
 * [Get Messages](#get_messages)
 * [Get a Message](#get_a_message)
 * [Delete a Message](#delete_a_message)
 
 #### [Create a User](id:create_user)
 	# Route
-	POST v1/users
+	POST v1/registrations
 	
 	# Required Parameters
 	[email, password, password_confirmation]
 	
 	# Body
-	user[email]=chuckjhardy%40venkman-app.com&user[password]=ABC123789&user[password_confirmation]=ABC123789
+	email=chuckjhardy%40venkman-app.com&password=ABC123789&password_confirmation=ABC123789
 	
 	# Status
 	201 Created
@@ -29,8 +30,7 @@ Retreive, parse, process, filter and assign emails from a Gmail account to a use
 	{
   		"user": {
     		"authentication_token": "DkrZ8BzppQAVpC59pGHj",
-    		"email": "chuckjhardy@venkman-app.com",
-    		"id": 1
+    		"user_id": 1
   		}
 	}
 	
@@ -56,23 +56,6 @@ Retreive, parse, process, filter and assign emails from a Gmail account to a use
   		}
 	}
 	
-#### [Update a User](id:update_a_user)
-	
-	# Route
-	PUT v1/users/:id
-	
-	# Required Parameters
-	[auth_token]
-	
-	# Body
-	auth_token=TqCjxhL3MMMj7g7GV8NV&user[email]=chuck%40venkman-app.com
-	
-	# Status
-	204 No Content
-	
-	# Response
-	{}
-	
 #### [Delete a User](id:delete_a_user)
 	
 	# Route
@@ -89,6 +72,44 @@ Retreive, parse, process, filter and assign emails from a Gmail account to a use
 	
 	# Response
 	{}
+	
+
+#### [Sign-in a User](id:signin_user)
+	# Route
+	POST v1/sessions
+	
+	# Required Parameters
+	[email, password]
+	
+	# Body
+	email=chuckjhardy%40venkman-app.com&password=ABC123789
+	
+	# Status
+	201 Created
+	
+	# Response
+	{
+  		"user": {
+    		"authentication_token": "DkrZ8BzppQAVpC59pGHj",
+    		"user_id": 1
+  		}
+	}
+	
+#### [Sign-out a User](id:signout_user)
+	# Route
+	DELETE v1/sessions
+	
+	# Required Parameters
+	[auth_token]
+	
+	# Query Parameter
+	auth_token: eKgSzpK3KC4pSkhxYybG
+	
+	# Status
+	204 No Content
+	
+	# Response
+	''
 	
 #### [Get Messages](id:get_messages)
 	# Route
@@ -157,7 +178,6 @@ Retreive, parse, process, filter and assign emails from a Gmail account to a use
 	
 	# Response
     {}
-
 
 ## Contributing [![Maintained Status](http://stillmaintained.com/ChuckJHardy/Venkman.png)](http://stillmaintained.com/ChuckJHardy/Venkman)
 
