@@ -1,8 +1,8 @@
 source 'https://rubygems.org'
 
-ruby '2.0.0'
+ruby '2.1.2'
 
-gem 'rails', '~> 3.2.13'
+gem 'rails', '~> 3.2.18'
 gem 'rails-api', "~> 0.0.3"
 gem 'pg', "~> 0.15.0"
 gem 'thin', "~> 1.5.1"
@@ -28,7 +28,6 @@ group :test do
   gem "shoulda-matchers", "~> 2.1.0"
   gem "rspec_api_documentation", "~> 0.8.0"
   gem "simplecov", "~> 0.7.1", require: false
-  gem 'simplecov-vim', "~> 0.0.1"
 end
 
 group :test, :development do

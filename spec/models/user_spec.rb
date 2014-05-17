@@ -63,7 +63,7 @@ describe User do
 
       it 'gets called' do
         UniqueIdentifier.should_receive(:for).
-          any_number_of_times.
+          exactly(3).times.
           with(instance.email).
           and_return(hex)
 
