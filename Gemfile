@@ -7,7 +7,7 @@ gem 'rails-api', "~> 0.0.3"
 gem 'pg', "~> 0.15.0"
 gem 'thin', "~> 1.5.1"
 gem "devise", "~> 2.2.3"
-gem "dalli", "~> 2.6.2"
+gem "dalli", "~> 2.7.2"
 gem "yajl-ruby", "~> 1.1.0", require: 'yajl'
 gem "draper", "~> 1.2.1"
 gem "gmailish", "~> 0.0.1"
